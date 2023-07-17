@@ -1,0 +1,23 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class HarshedNo {
+    public static void main(String[] args) {
+        Scanner scanner=new Scanner(System.in);
+        int n=scanner.nextInt();
+        int i=n;
+        int s=0;
+       
+        while(i!=0)
+        {
+            s+=i%10;
+            
+            i/=10;
+        }
+       
+        if(n%s==0)
+        System.out.println("Harshed");
+        else
+        System.out.println("Not Harshed");
+    }
+}
