@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class LibraryFineCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of books lent to the student: ");
+        int numBooks = scanner.nextInt();
+
+        System.out.print("Enter the number of days late for each book: ");
+        int[] daysLate = new int[numBooks];
+        for (int i = 0; i < numBooks; i++) {
+            daysLate[i] = scanner.nextInt();
+        }
+
+        double totalFine = calculateTotalFine(numBooks, daysLate);
+        System.out.println("The total fine for the books lent to the student is: Rs. " + totalFine);
+    }
+
+    public static double calculateTotalFine(int numBooks, int[] daysLate) {
+        double totalFine = 0;
+        int dueDate = 25;
+
+        for (int i = 0; i < numBooks; i++) {
+            int daysExceeded = Math.max(0, daysLate[i] - dueDate);
+
+            if (daysExceeded >= 1 && daysExceeded <= 5) {
+                totalFine += 0.40;
+            } else if (daysExceeded >= 6 && daysExceeded <= 10) {
+                totalFine += 0.65;
+            } else if (daysExceeded >= 11 && daysExceeded <= 15) {
+                totalFine += 0.80;
+            } else if (daysExceeded >= 16 && daysExceeded <= 25) {
+                totalFine += 1.20;
+            }
+
+          
+            
+            boolean isMisplaced = false; 
+            boolean isHampered = false; 
+            
+            System.out.print("If book is misplaced enter 0 otherwise 1");
+            int f=scanner.nextInt();
+            System.out.print("If book is hampered enter 0 otherwise 1");
+            int g=scanner.nextInt();
+            if(f==0)
+            {
+              isMisplaced=true;
+            }
+            if(g==0)
+            {
+              isHampered=true;
+            }
+
+            if (isMisplaced) {
+                totalFine += 500;
+            } else if (isHampered) {
+                totalFine += 200;
+            }
+        }
+
+        return totalFine;
+    }
+}
