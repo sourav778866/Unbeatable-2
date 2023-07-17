@@ -1,0 +1,22 @@
+import java.util.*;
+class DuckNo {
+    public static void main(String[] args) {
+        Scanner scanner=new Scanner(System.in);
+        int n=scanner.nextInt();
+        int i=n;
+       
+        while(i!=0)
+        {
+           if(i%10==0)
+           {
+               System.out.println("Duck");
+               return;
+           }
+            
+            i/=10;
+        }
+       
+       
+        System.out.println("Not Duck");
+    }
+}
