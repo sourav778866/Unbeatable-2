@@ -1,0 +1,20 @@
+import java.util.*;
+class SpecialNo {
+    public static void main(String[] args) {
+        Scanner scanner=new Scanner(System.in);
+        int n=scanner.nextInt();
+        int i=n;
+        int s=0;
+        int p=1;
+        while(i!=0)
+        {
+            s+=i%10;
+            p*=i%10;
+            i/=10;
+        }
+        if(s+p==n)
+        System.out.println("Special");
+        else
+        System.out.println("Not Special");
+    }
+}
